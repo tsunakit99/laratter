@@ -6,6 +6,7 @@ use App\Http\Controllers\TweetController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,10 @@ use App\Http\Controllers\SearchController;
 
 // 🔽 ここを編集
 Route::middleware('auth')->group(function () {
+    Route::put('/comments/{comment}', [CommentController::class, 'update'])->name('comment.update');
+    Route::get('/comments/{comment}/edit', [CommentController::class, 'edit'])->name('comment.edit');
+    Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
+    Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
     // 🔽 追加（検索画面）
     Route::get('/tweet/search/input', [SearchController::class, 'create'])->name('search.input');
     // 🔽 追加（検索処理）

@@ -42,7 +42,6 @@
               </p>
               @endforeach
             </div>
-
             <div class="flex items-center justify-end mt-4">
               <a href="{{ url()->previous() }}">
                 <x-secondary-button class="ml-3">

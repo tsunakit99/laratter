@@ -60,7 +60,14 @@ class TweetController extends Controller
      */
     public function show(string $id)
     {
-        $tweet = Tweet::find($id);
+        // ツイートと関連するコメントを取得
+        $tweet = Tweet::with('comments')->find($id);
+
+        if (!$tweet) {
+            // ツイートが見つからない場合のエラーハンドリング
+            return abort(404);
+        }
+
         return response()->view('tweet.show', compact('tweet'));
     }
 

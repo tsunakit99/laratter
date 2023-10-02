@@ -35,16 +35,24 @@ dec2023phase0137.mp4
 
 ## 工夫した点
 
-① コメントの下部にコメントがいつ作成されたかを、
-//<p class="text-sm text-gray-500">{{ $comment->created_at->diffForHumans() }}</p>
+①
+コメントの下部にコメントがいつ作成されたかを、
+
+<!--<p class="text-sm text-gray-500">{{ $comment->created_at->diffForHumans() }}</p>-->
+
 によって表示しました。
 また、誰がそのコメントを書いたかを、
-//<p class="text-sm text-gray-500">Comment by: {{ $comment->user->name }}</p>
+
+<!--<p class="text-sm text-gray-500">Comment by: {{ $comment->user->name }}</p>-->
+
 によって表示しました。
 
-②@if ($comment->created_at != $comment->updated_at)
-//<p class="text-sm text-gray-500">(編集済み)</p>
-@endif
+②
+
+<!-- @if ($comment->created_at != $comment->updated_at)
+<p class="text-sm text-gray-500">(編集済み)</p>
+@endif-->
+
 を追加することによって、コメントが編集されると「(編集済み)」という文字が表示されるようにしました。
 
 ③ 削除編集ボタンの背景を白色にして、コメント欄を見やすくしました。(主観)
